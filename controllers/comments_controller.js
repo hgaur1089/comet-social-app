@@ -17,6 +17,20 @@ module.exports.create = async function(req, res){
             post.comments.push(comment);
             post.save();
 
+            if(req.xhr){
+
+                comment = await comment.populate('user', 'name').exexPopulate();
+
+                return res.status(200).json({
+                    data: {
+                        comment: comment
+                    },
+                    message: "Commnet Created!"
+                });
+            }
+
+            req.flash('success', 'Comment Published');
+
             return res.redirect('/');
         }
     }catch(err){
@@ -38,6 +52,15 @@ module.exports.destroy = async function(req, res){
 
             let post = Post.findByIdAndUpdate(postId, { $pull: {comments: req.params.id}});
 
+            if(req.xhr){
+                return res.status(200).jsin({
+                    data: {
+                        comment_id: req.params.id
+                    },
+                    message: "Comment Deleted"
+                });
+            }
+            
             return res.redirect('back');
 
         } else {
