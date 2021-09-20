@@ -9,6 +9,10 @@ const db = require('./config/mongoose');4
 const session = require('express-session');
 const passport = require('passport');
 const passportLocal = require('./config/passport-local-strategy');
+const passportJWT = require('./config/passport-jwt-strategy');
+const passportGoogle = require('./config/passport-google-oauth2-strategy');
+
+
 const { startSession } = require('./models/users');
 const MongoStore = require('connect-mongo')(session);
 const sassMiddleware = require('node-sass-middleware');
@@ -27,6 +31,8 @@ app.use(express.urlencoded());
 app.use(cookieParser());
 
 app.use(express.static('./assets'));
+//make the uploads apth available to the browser
+app.use('/uploads', express.static(__dirname + '/uploads'));
 
 app.use(expressLayouts);
 //extract style and script from sub pages into the layout
