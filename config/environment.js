@@ -24,8 +24,8 @@ const development = {
         port: 587,
         secure: false,
         auth: {
-            user: 'hgaur1089@gmail.com',
-            pass: 'Himanshu@123A'
+            user: 'smtpmail1089@gmail.com',
+            pass: 'Smtpmail@123'
         }
     },
     google_client_id: "105966610831-52nmpgctr5m97c1ahm0iuqnvd7v43qsn.apps.googleusercontent.com",
