@@ -24,12 +24,11 @@ body {
       border: 2px white solid;
       border-radius: 50%;
       outline-style: solid;
-      outline-color: #1d6ab8;
+      outline-color: #3B49DF;
       outline-width: 3px; }
       #profile header div .circular--landscape img {
         width: auto;
-        height: 100%;
-        margin-left: -50px; }
+        height: 100%; }
     #profile header div #details {
       display: flex;
       flex-direction: column;

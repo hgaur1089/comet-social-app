@@ -5,47 +5,6 @@
  
 <div id="home-container">
 
-    <!-- <% if(locals.user) { %> -->
-    <!-- <section id="profile-details">
-        <h4>Profile Details</h4>
-        <div> 
-            <img src="<%= user.avatar %>" alt="<%= user.id %>">
-            <h4><%= user.name %></h4>
-            <a href="/users/profile/<%= user.id %>" class="btn btn-outline-secondary btn-sm mb-2" role="button">Edit</a>
-            <a href="#" class="btn btn-outline-primary btn-sm mb-2" role="button">Posts</a>
-        </div>
-    </section> -->
-    <!-- <section id="sidetab">
-        <h4>Comet</h4>
-        <div class="list">
-            <ul>
-                <li>
-                    <a href="/">
-                        <i class="fas fa-home fa-lg"></i>&emsp; Home
-                    </a>
-                </li>
-                <li>
-                    <i class="fas fa-inbox fa-lg"></i>&emsp; Posts
-                </li>
-                <li>
-                    <i class="fas fa-user-alt fa-lg"></i>&emsp; Profile
-                </li>
-                <li class="sign-out">
-                    <a href="/users/sign-out" class="sign-out-link">
-                        <i class="fas fa-power-off fa-lg"></i>&emsp; Sign Out
-                    </a>
-                </li>
-            </ul>
-        </div>
-        <hr>
-        <div class="user-info"> 
-            <div>
-                <img src="<%= user.avatar %>" alt="<%= user.id %>">
-            </div>
-            <h4><%= user.name %></h4>
-        </div>
-    </section>
-    <% } %> -->
     <section id="feed-posts" class="container w-50 mt-3">
         <% if(locals.user) { %>
             <div id="create-post">
@@ -61,8 +20,8 @@
             </div>
             <hr>
         <% } %>
+        <h3><i class="fas fa-fire fa-lg"></i> Posts</h3>
         <div id="posts-list-container">
-            <h3><i class="fas fa-fire fa-lg"></i> Posts</h3>
             <ul class="post-list">
                 <% for(post of posts) { %> 
                     

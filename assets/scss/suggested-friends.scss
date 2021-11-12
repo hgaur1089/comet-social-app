@@ -27,7 +27,7 @@
             border: 2px white solid;
             border-radius: 50%;
             outline-style: solid;
-            outline-color: #1d6ab8;
+            outline-color: #3B49DF;
             outline-width: 3px;
             img {
                 width: auto;
@@ -45,10 +45,11 @@
             color: black;
         }
         &:hover{
-            background-color: #4993dd;
+            background-color: lightgrey;
             border-radius: 15px;
+            padding: 8px 8px 4px 8px;
             a{
-                color: white;
+                //color: white;
                 font-size: large;
             }
         }

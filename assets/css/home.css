@@ -22,13 +22,14 @@
       font-weight: 700;
       font-size: large;
       border-radius: 10px; }
+      #home-container #feed-posts #create-post button:hover {
+        background-color: #3441ca; }
+    #home-container #feed-posts h3 {
+      font-weight: 700; }
+      #home-container #feed-posts h3 i {
+        color: red; }
     #home-container #feed-posts #posts-list-container {
       margin-top: 5%; }
-      #home-container #feed-posts #posts-list-container h3 {
-        font-weight: 700;
-        padding: 10px; }
-        #home-container #feed-posts #posts-list-container h3 i {
-          color: red; }
       #home-container #feed-posts #posts-list-container ul {
         list-style: none;
         padding: 0px; }

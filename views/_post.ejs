@@ -13,7 +13,7 @@
                         <%= post.user.name %>
                     </small>
                 </div>
-
+ 
                 <% if (locals.user && locals.user.id == post.user.id) { %> 
                     <div class="delete-btn">
                         <a class="delete-post-button btn btn-danger btn-sm" role="button" href="/posts/destroy/<%= post.id %>">Delete</a>

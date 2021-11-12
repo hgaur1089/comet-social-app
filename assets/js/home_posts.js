@@ -12,8 +12,8 @@
                 data: newPostForm.serialize(),
                 success: function(data){
                     let newPost = newPostDom(data.data.post);
-                    $('#posts-list-container>ul').prepend(newPost);
-                    deletePost($(' .delete-post-button', newPost));
+                    $('#posts-list-container').prepend(newPost);
+                    deletePost($('.delete-post-button', newPost));
 
                     new Noty({
                         theme: 'relax',
@@ -42,12 +42,12 @@
     //method to create a post in DOM
     let newPostDom = function(post){
         return $(`
-                    <li id="post-${post._id}">
+                    <li id="post-${post._id}" style="list-style:none;">
                     <div id="card" class="container">
                         <div class="post-body"> 
                             <header>
                                 <div class="name-pic">
-                                    <img src="${post.user.avatar}>" alt="${post.user.name}" class="userpic">
+                                    
                                     <small class="username">
                                         ${post.user.name}
                                     </small>
@@ -111,7 +111,23 @@
                         <h5 class="modal-title" id="commentsModalLabel">Comments</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <div class="modal-body">
+                        <div class="modal-body"> 
+                            <div class="comment-form">
+                                <form id="post-${post._id}-comments-form" action="/comments/create" method="POST">
+                                    <!-- <input type="text" name="content" placeholder="Add a comment..." required> -->
+                                    <div class="d-flex flex-row ">
+                                        <div class="comment-form-input">
+                                            <input type="input" placeholder="Add a comment..." name="content" id='comment' required />
+                                        </div>
+                                        <input type="hidden" name="post" value="${post._id}">
+                                        <div class="d-grid gap-2 comment-form-btn">
+                                            <button type="submit" class="publish-btn btn-grad">
+                                                <i class="fas fa-paper-plane"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form> 
+                            </div>
                             <div class="post-comments-list">
                                 <ul id="post-comments-${post._id}">
                                 
@@ -129,7 +145,7 @@
     }
 
     //method to delete a post from DOM
-    let deletePost = function(deleteLink){
+    let deletePost = function(deleteLink){ 
         $(deleteLink).click(function(e){
             e.preventDefault();
 

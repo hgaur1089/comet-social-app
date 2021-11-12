@@ -34,8 +34,8 @@ class PostComments{
                 success: function(data){
                     let newComment = pSelf.newCommentDom(data.data.comment);
                     $(`#post-comments-${postId}`).prepend(newComment);
-                    pSelf.deleteComment($(' .delete-comment-button', newComment));
-
+                    pSelf.deleteComment($('.delete-comment-button', newComment));
+                    conole.log(data);
                     //enable the functionality of the toggle like button on the new comment
                     new ToggleLike($('.toggle-like-button', newComment));
                     new Noty({
@@ -66,23 +66,21 @@ class PostComments{
                             <h4>
                                 ${comment.user.name}
                             </h4>
-                            <% if (locals.user && locals.user.id == comment.user.id) { %> 
+                            
                                 <a class="delete-comment-button" href="/comments/destroy/${comment._id}">
                                     <i class="far fa-times-circle"></i>
                                 </a>
-                            <% } %>
+                            
                                 
                         </div>
                         <div id="content">
                             ${comment.content}
                             <div id="likes">
-                                <% if(locals.user){ %>
-                                    <a class="toggle-like-button" data-likes="<%= comment.likes.length %>" href="/likes/toggle/?id=${comment._id}&type=Comment">
-                                        <%= comment.likes.length %> <b>Likes</b>
+                                
+                                    <a class="toggle-like-button" data-likes="0" href="/likes/toggle/?id=${comment._id}&type=Comment">
+                                        0 <b>Likes</b>
                                     </a>
-                                <% } else{ %>
-                                    <%= post.likes.length %> <b>Likes</b>
-                                <% } %>
+                                
                             </div>
                         </div>
                 
