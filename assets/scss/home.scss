@@ -1,16 +1,53 @@
 #home-container{
     display: flex;
     height: 100%;
+    
+    #feed-posts{ 
+        width: 50%;
+        padding: 10px 30px; 
+        position: relative;
+        // top: 8%; 
+        #create-post{
+            h5 {
+                font-family: 'Poppins', sans-serif; 
+                font-weight: 700;
+                color: grey;
+            }
+            textarea {
+                -webkit-border-radius: 50px;
+                -moz-border-radius: 50px;
+                border-radius: 15px;
+                font-family: 'Poppins', sans-serif; 
+                font-weight: 500;
+                font-size: 1rem;
+                &:focus{
+                    font-weight: 700;
+                }
+            }
+            button {
+                font-weight: 700;
+                font-size: large;
+                border-radius: 10px;
+            }
+        }
 
-    #feed-posts{
-        width: 70%;
-        padding: 10px;
+        #posts-list-container{
+            margin-top: 5%;
+            h3{
+                font-weight: 700;
+                padding: 10px;
+                i{
+                    color: red;
+                }
+            }
+            ul {
+                list-style:none;
+                //background-color: grey;
+                padding: 0px;
+               
+            }
+        }
     }
 
-    #user-friends{
-        width: 30%;
-        padding: 10px;
-        border-left: 1px solid lightgrey;
-        height: 100%;
-    }
+    
 }

@@ -1,0 +1,75 @@
+#sidetab {
+  width: 25%;
+  padding: 10px;
+  border-right: 1px solid lightgrey;
+  background-color: #fff;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0%;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 50px; }
+  #sidetab h2 {
+    background: linear-gradient(to right, #6c2be4, #297fd4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
+    padding: 10px; }
+  #sidetab .list {
+    flex-grow: 1;
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; }
+    #sidetab .list ul {
+      list-style: none; }
+      #sidetab .list ul li {
+        padding: 12px;
+        font-size: 1.3rem;
+        font-weight: 700;
+        text-decoration: none;
+        color: black; }
+        #sidetab .list ul li:hover {
+          background-color: lightgrey;
+          border-radius: 25px; }
+        #sidetab .list ul li a {
+          text-decoration: none;
+          color: black; }
+      #sidetab .list ul .sign-out:hover {
+        background: #DC3545; }
+        #sidetab .list ul .sign-out:hover a {
+          color: white; }
+      #sidetab .list ul .sign-in-up:hover {
+        background: #0D6EFD; }
+        #sidetab .list ul .sign-in-up:hover a {
+          color: white; }
+  #sidetab hr {
+    margin: 5px; }
+  #sidetab .user-info {
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    bottom: 10px; }
+    #sidetab .user-info .circular--landscape {
+      padding: 0;
+      background-color: grey;
+      display: inline-block;
+      position: relative;
+      width: 45px;
+      height: 45px;
+      overflow: hidden;
+      border: 2px white solid;
+      border-radius: 50%;
+      outline-style: solid;
+      outline-color: #1d6ab8;
+      outline-width: 3px; }
+      #sidetab .user-info .circular--landscape .img {
+        width: auto;
+        height: 100%; }
+    #sidetab .user-info h4 {
+      align-self: center;
+      font-size: 1.1rem;
+      font-weight: 700;
+      padding: 10px; }

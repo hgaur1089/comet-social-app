@@ -1,47 +1,124 @@
+<link rel="stylesheet" href="/css/postcard.css">
+<link rel="stylesheet" href="/css/all.css">
 
 <li id="post-<%= post._id %>">
-    <p>
-        <% if (locals.user && locals.user.id == post.user.id) { %> 
-            <small>
-                <a class="delete-post-button" href="/posts/destroy/<%= post.id %>">X</a>
-            </small>
-        <% } %>
-        <%= post.content %>
-    <br>
-    <small>
-        <%= post.user.name %>
-    </small>
+    <div id="card" class="container">
+        <div class="post-body"> 
+            <header>
+                <div class="name-pic">
+                    <div class="circular--landscape">
+                        <img src="<%= post.user.avatar %>" alt="<%= post.user.name %>" class="userpic">
+                    </div>
+                    <small class="username">
+                        <%= post.user.name %>
+                    </small>
+                </div>
 
-    <!-- display the likes of the post, if the user is logged in, then show the link to toggle likes, else just show the count-->
-    <br>
-    <small>
-        <% if(locals.user){ %>
-            <a class="toggle-like-button" data-likes="<%= post.likes.length %>" href="/likes/toggle/?id=<%=post._id%>&type=Post">
-                <%= post.likes.length %> <b>Likes</b>
-            </a>
-        <% } else{ %>
-            <%= post.likes.length %> <b>Likes</b>
-        <% } %>
-    </small>
-    </p>
-    <div class="post-comments">
-        <% if(locals.user) {%>
-            <form id="post-<%= post._id %>-comments-form" action="/comments/create" method="POST">
-                <input type="text" name="content" placeholder="Add a comment..." required>
-                <input type="hidden" name="post" value="<%= post._id %>">
-                <input type="submit" value="Add Comment">
+                <% if (locals.user && locals.user.id == post.user.id) { %> 
+                    <div class="delete-btn">
+                        <a class="delete-post-button btn btn-danger btn-sm" role="button" href="/posts/destroy/<%= post.id %>">Delete</a>
+                    </div> 
+                <% } %>
+            </header>
+            <hr>
 
-            </form>    
-        <% } %>
-
-        <div class="post-comments-list">
-            <ul id="post-comments-<%= post._id %>">
-                <% for(comment of post.comments) {%>
+            <div class="post-content">
+                <%= post.content %>
+            </div>
+            
+            <hr>
+            <!-- display the likes of the post, if the user is logged in, then show the link to toggle likes, else just show the count-->
+            <div class="like-comment">
+                <div class="post-likes">
+                    <% if(locals.user){ %>
+                        <a class="toggle-like-button" data-likes="<%= post.likes.length %>" href="/likes/toggle/?id=<%=post._id%>&type=Post">
+                            <%= post.likes.length %> <b>Likes</b>
+                        </a>
+                    <% } else{ %>
+                        <%= post.likes.length %> <b>Likes</b>
+                    <% } %>
+                </div>
+                <div>
+                    <a href="#commentsModal" data-bs-toggle="modal" data-bs-target="#commentsModal">
+                        <i class="far fa-comment-dots fa-lg"></i>
+                        <b>Comments</b>
+                    </a>
                     
-                    <%- include('_comment') -%>
+                </div>
+            </div>
+            <div class="post-comment-input">
+                <% if(locals.user) {%>
+                    <form id="post-<%= post._id %>-comments-form" action="/comments/create" method="POST">
+                        <!-- <input type="text" name="content" placeholder="Add a comment..." required> -->
+                        <div class="d-flex flex-row justify-content-center">
+                            <div class="form__group field">
+                                <input type="input" class="form__field" placeholder="Add a comment..." name="content" id='comment' required />
+                                <label for="comment" class="form__label">Add a comment...</label>
+                            </div>
+                            <input type="hidden" name="post" value="<%= post._id %>">
+                            <div class="add-btn">
+                                <button type="submit" class="publish-btn btn-grad">
+                                    <i class="fas fa-paper-plane"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>    
+                <% } %>
+            </div>
 
-                <%}%>
-            </ul>
         </div>
+        
+        <div class="post-comments">
+            <ul id="post-comments-<%= post._id %>">
+            
+            </ul> 
+        </div>
+        
     </div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="commentsModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="commentsModalLabel">Comments</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="comment-form">
+                <form id="post-<%= post._id %>-comments-form" action="/comments/create" method="POST">
+                    <!-- <input type="text" name="content" placeholder="Add a comment..." required> -->
+                    <div class="d-flex flex-row ">
+                        <div class="comment-form-input">
+                            <input type="input" placeholder="Add a comment..." name="content" id='comment' required />
+                        </div>
+                        <input type="hidden" name="post" value="<%= post._id %>">
+                        <div class="d-grid gap-2 comment-form-btn">
+                            <button type="submit" class="publish-btn btn-grad">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form> 
+            </div>
+            <div class="post-comments-list">
+                <ul id="post-comments-<%= post._id %>">
+                    <% for(comment of post.comments) {%>
+                        
+                        <%- include('_comment') -%>
+
+                    <%}%>
+                </ul>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+          <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+
 </li>

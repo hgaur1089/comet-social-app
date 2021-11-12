@@ -17,16 +17,15 @@ module.exports.home = async function(req, res){
         .populate('user')
         .populate({
             path: 'comments',
-            populate: {
-                path: 'user'
-            },
-            populate: {
+            populate: [{
+                    path: 'user'
+            },{
                 path: 'likes'
-            },
+            }], 
         }).populate('likes');
 
         let users = await User.find({})
-
+            
         return res.render('home.ejs', {
             title: "Comet | Home",
             posts: posts,

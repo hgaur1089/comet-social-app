@@ -1,24 +1,63 @@
-    <link rel="stylesheet" href="/css/user_profile.css">
-    <h1>
-        Users Profile Page
-    </h1>
+<link rel="stylesheet" href="/css/user_profile.css">
+<link rel="stylesheet" href="/css/profile-details.css">
 
-    <img src="<%= user.avatar %>" alt="<%= user.name %>" width="100">
+<section id="profile" class="container w-50 mt-3">
+    <header>
+        <div> 
+            <div class="circular--landscape">
+                <img src="<%= profile_user.avatar %>" alt="<%= profile_user.id %>">
+            </div>
+            <div id="details">
+                <h4><%= profile_user.name %></h4>
+                <div>
+                    <h5><b><%= user_posts.length %> Posts</b></h5>
+                    <h5 id="friends"><b><%= profile_user.friendships.length %> Friends</b></h5>
+                </div>
+
+            </div>
+        </div>
+    </header>
+    <hr>
+    <section id="feed-posts" class="container mt-3">
+        <div id="posts-list-container">
+            <ul class="post-list">
+                <% for(post of user_posts) { %> 
+                    
+                    <%-  include('_post') -%>
     
+                <% } %>
+            </ul>
+        </div>
+    </section>
+</section>   
 
-    <% if(user.id == profile_user.id) { %>
+<% if(user.id == profile_user.id) { %>
+<section id="profile-details">
+    <h4>
+        <b>Edit Details</b>
+    </h4>
+
+    <div>
+        <div id="details-pic" class="circular--landscape">
+            <img src="<%= user.avatar %>" alt="<%= user.name %>" id="profile-image" width="100">
+        </div>
+    
         <!-- if user matches then shoewthe form -->
         <form action="/users/update/<%= profile_user.id %>" enctype="multipart/form-data" method="POST">
-            <input type="text" name="name" placeholder="Your Name" value="<%= profile_user.name%>" required>
-            <input type="email" name="email" placeholder="Your Email" value="<%= profile_user.email%>" required>
-            
-            <input type="file" name="avatar" id="Profile Picture">
-            <input type="submit" value="update">
+            <div class="d-grid gap-2">
+                <input type="text" name="name" class="form-control" placeholder="Your Name" value="<%= profile_user.name%>" required>
+            </div>
+            <div class="d-grid gap-2">
+                <input type="email" name="email" class="form-control" placeholder="Your Email" value="<%= profile_user.email%>" required>
+            </div>
+            <div class="d-grid gap-2">
+                <input type="file" name="avatar" class="form-control" id="Profile-Picture">
+            </div>
+            <div class="d-grid gap-2">
+                <button type="submit" class="btn btn-outline-primary">Update</button>
+            </div>
         </form>
+    </div>
 
-    <% } else { %>
-        <!-- else show only the profile info -->
-        <p><%= profile_user.name %></p>
-        <p><%= profile_user.email %></p>
-
-    <% } %>
+    </section>
+<% } %>

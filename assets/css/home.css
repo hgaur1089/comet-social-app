@@ -2,10 +2,33 @@
   display: flex;
   height: 100%; }
   #home-container #feed-posts {
-    width: 70%;
-    padding: 10px; }
-  #home-container #user-friends {
-    width: 30%;
-    padding: 10px;
-    border-left: 1px solid lightgrey;
-    height: 100%; }
+    width: 50%;
+    padding: 10px 30px;
+    position: relative; }
+    #home-container #feed-posts #create-post h5 {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      color: grey; }
+    #home-container #feed-posts #create-post textarea {
+      -webkit-border-radius: 50px;
+      -moz-border-radius: 50px;
+      border-radius: 15px;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 500;
+      font-size: 1rem; }
+      #home-container #feed-posts #create-post textarea:focus {
+        font-weight: 700; }
+    #home-container #feed-posts #create-post button {
+      font-weight: 700;
+      font-size: large;
+      border-radius: 10px; }
+    #home-container #feed-posts #posts-list-container {
+      margin-top: 5%; }
+      #home-container #feed-posts #posts-list-container h3 {
+        font-weight: 700;
+        padding: 10px; }
+        #home-container #feed-posts #posts-list-container h3 i {
+          color: red; }
+      #home-container #feed-posts #posts-list-container ul {
+        list-style: none;
+        padding: 0px; }

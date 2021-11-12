@@ -1,15 +1,44 @@
 const User = require('../models/users');
+const Post = require('../models/post');
 const fs = require('fs');
 const path = require('path');
 
 //let keep it same as before
-module.exports.profile = function(req, res){
-    User.findById(req.params.id, function(err, user){
+module.exports.profile = async function(req, res){
+
+    // User.findById(req.params.id, function(err, user){
+    //     return res.render('user_profile.ejs', {
+    //         title: 'User Profile',
+    //         profile_user: user,
+    //         user_posts: post, 
+    //     }); 
+    // });
+    try{
+        //populate the user of each post 
+        let posts = await Post.find({user: req.params.id})
+        .sort('-createdAt')
+        .populate('user')
+        .populate({
+            path: 'comments',
+            populate: {
+                path: 'user'
+            },
+            populate: {
+                path: 'likes'
+            }, 
+        }).populate('likes');
+
+        let user = await User.findById(req.params.id);
+
         return res.render('user_profile.ejs', {
             title: 'User Profile',
             profile_user: user,
+            user_posts: posts, 
         });
-    });
+    }catch(err){
+        console.log('Error', err);
+        return;
+    }
 }
 
 module.exports.update = async function(req, res){
@@ -66,7 +95,7 @@ module.exports.signUp = function(req, res){
         title: "Comet | Sign Up"
     })
 }
-
+  
 //render Sign in page
 module.exports.signIn = function(req, res){
     if(req.isAuthenticated()){

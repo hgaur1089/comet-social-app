@@ -1,35 +1,40 @@
+<link rel="stylesheet" href="/css/sidetab.css">
+
 <header id="layout-header">
-    <nav>
-        <div class="mini-logo">
-            <p>
-                <a href='/'>
-                    COMET
-                </a>
-            </p>
-        </div>
-    
-        <div class="auth-links">
-            <ul>
-                <% if (locals.user){ %>
-                <li>
-                    <a href="/users/profile"><%= user.name %></a>
-                </li>
-                <li>
-                    <a href="/users/sign-out">Sign Out</a>
-                </li>
-                <% }else{ %>
-                <li>
-                    <a href="/users/sign-in">Sign In</a>
-                </li>
-                <li>
-                    <a href="/users/sign-up">Sign Up</a>
-                </li>
-        
-                <% } %>
-            </ul>
-        </div>
-    </nav>
  
-
-
+    <% if(locals.user) { %>
+    <section id="sidetab">
+        <h2>Comet</h2>
+            <div class="list">
+                <ul>
+                    <li>
+                        <a href="/">
+                            <i class="fas fa-home fa-lg"></i>&emsp; Home
+                        </a>
+                    </li>
+                    <li>
+                        <i class="fas fa-inbox fa-lg"></i>&emsp; Posts
+                    </li>
+                    <li>
+                        <a href="/users/profile/<%= user.id %>">
+                            <i class="fas fa-user-alt fa-lg"></i>&emsp; Profile
+                        </a>
+                    </li>
+                    <li class="sign-out">
+                        <a href="/users/sign-out" class="sign-out-link">
+                            <i class="fas fa-power-off fa-lg"></i>&emsp; Sign Out
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <hr>
+            <div class="user-info"> 
+                <div class="circular--landscape">
+                    <img src="<%= user.avatar %>" alt="<%= user.id %>">
+                </div>
+                <h4><%= user.name %></h4>
+            </div>
+        
+        </section>
+        <% } %>
 </header>

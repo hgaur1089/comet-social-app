@@ -1,0 +1,182 @@
+#card {
+  border: 2px solid lightgrey;
+  border-radius: 15px;
+  margin-bottom: 10px; }
+  #card .post-body {
+    display: flex;
+    flex-direction: column; }
+    #card .post-body header {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 8px;
+      margin-top: 4px; }
+      #card .post-body header .name-pic {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start; }
+        #card .post-body header .name-pic .circular--landscape {
+          padding: 0;
+          background-color: grey;
+          display: inline-block;
+          position: relative;
+          width: 45px;
+          height: 45px;
+          overflow: hidden;
+          border: 2px white solid;
+          border-radius: 50%;
+          outline-style: solid;
+          outline-color: #1d6ab8;
+          outline-width: 3px; }
+          #card .post-body header .name-pic .circular--landscape .userpic {
+            width: auto;
+            height: 100%;
+            margin-left: -5px; }
+        #card .post-body header .name-pic .username {
+          align-self: center;
+          font-family: inherit;
+          padding: 5px;
+          padding-left: 15px;
+          font-size: 1.2rem;
+          font-weight: 700; }
+      #card .post-body header .delete-btn {
+        justify-content: flex-end;
+        align-self: center; }
+    #card .post-body hr {
+      margin: 5px; }
+    #card .post-body .post-content {
+      margin: 20px;
+      font-size: medium;
+      font-weight: 500;
+      overflow: hidden;
+      text-overflow: ellipsis; }
+    #card .post-body .like-comment {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+      padding: 4px;
+      font-size: medium;
+      font-weight: 600; }
+      #card .post-body .like-comment a {
+        text-decoration: none;
+        padding: 5px 10px; }
+        #card .post-body .like-comment a:hover {
+          color: white;
+          background-color: #2b88e4;
+          border-radius: 5px; }
+    #card .post-body .post-comment-input {
+      /* reset input */
+      /* demo */ }
+      #card .post-body .post-comment-input .add-btn {
+        align-self: center;
+        position: relative; }
+        #card .post-body .post-comment-input .add-btn .btn-grad {
+          background-color: #2b88e4;
+          margin-top: 0px;
+          padding: 12px 12px;
+          text-align: center;
+          text-transform: uppercase;
+          transition: 0.5s;
+          background-size: 200% auto;
+          color: white;
+          box-shadow: 0 0 20px #eee;
+          border: 2px solid white;
+          border-radius: 50%;
+          display: block;
+          font-size: 20px; }
+        #card .post-body .post-comment-input .add-btn .btn-grad:hover {
+          background-image: linear-gradient(to right, #DA22FF 0%, #9733EE 51%, #DA22FF 100%);
+          background-position: right center;
+          /* change the direction of the change here */
+          color: #fff;
+          text-decoration: none; }
+      #card .post-body .post-comment-input .form__group {
+        position: relative;
+        padding: 10px 0 10px 0;
+        width: 70%; }
+      #card .post-body .post-comment-input .form__field {
+        font-family: inherit;
+        width: 100%;
+        border: 0;
+        border-bottom: 2px solid #2b88e4;
+        outline: 0;
+        font-size: 1.3rem;
+        color: black;
+        padding: 7px 0;
+        background: transparent;
+        transition: border-color 0.2s; }
+        #card .post-body .post-comment-input .form__field::placeholder {
+          color: transparent; }
+        #card .post-body .post-comment-input .form__field:placeholder-shown ~ .form__label {
+          font-size: 1.3rem;
+          cursor: text;
+          top: 20px; }
+      #card .post-body .post-comment-input .form__label {
+        position: absolute;
+        top: 0;
+        display: block;
+        transition: 0.2s;
+        font-size: 1rem;
+        color: #2b88e4; }
+      #card .post-body .post-comment-input .form__field:focus {
+        padding-bottom: 6px;
+        font-weight: 700;
+        border-width: 3px;
+        border-image: linear-gradient(to right, #6c2be4, #297fd4);
+        border-image-slice: 1; }
+        #card .post-body .post-comment-input .form__field:focus ~ .form__label {
+          position: absolute;
+          top: 0;
+          display: block;
+          transition: 0.2s;
+          font-size: 1rem;
+          color: #6c2be4;
+          font-weight: 700; }
+      #card .post-body .post-comment-input .form__field:required, #card .post-body .post-comment-input .form__field:invalid {
+        box-shadow: none; }
+      #card .post-body .post-comment-input body {
+        font-family: 'Poppins', sans-serif;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        font-size: 1.5rem;
+        background-color: #222222; }
+
+#commentsModal #commentsModalLabel {
+  font-size: 1.3rem;
+  font-weight: 700; }
+
+#commentsModal .comment-form .comment-form-input {
+  width: 90%; }
+  #commentsModal .comment-form .comment-form-input input {
+    width: 100%;
+    border: 1px solid lightgrey;
+    border-radius: 30px;
+    font-size: 1rem;
+    padding: 6px;
+    transition: boder-color 0.2s; }
+    #commentsModal .comment-form .comment-form-input input:focus {
+      outline-width: 3px;
+      outline-style: solid;
+      outline-color: #719ECE; }
+
+#commentsModal .comment-form .comment-form-btn {
+  padding-left: 6px; }
+  #commentsModal .comment-form .comment-form-btn button {
+    background-color: #297fd4;
+    margin-top: 0px;
+    padding: 10px 10px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    box-shadow: 0 0 20px #eee;
+    border: 2px solid white;
+    border-radius: 50%;
+    display: block;
+    font-size: 20px; }
+    #commentsModal .comment-form .comment-form-btn button:hover {
+      background-color: #2472c0; }

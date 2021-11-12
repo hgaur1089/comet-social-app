@@ -1,12 +1,33 @@
-<h1>Sign IN</h1>
+<div class="d-flex justify-content-center mt-5">
+    <div class="d-flex flex-column w-25 mt-4">
+        <h1><b>Comet</b> Sign IN</h1>
 
-<form action="/users/create-session" method="POST">
-    <input type="email" name="email" placeholder="Email" required>
-    <input type="password" name="password" placeholder="Password" required>
-    <input type="submit" value="Sign In">
+        <form action="/users/create-session" method="POST">
+            <div class="form-floating mb-3">
+                <input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
+                <label for="email" >Email address</label>
+            </div>
+            
+            <div class="form-floating mb-3">
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
+                    <label for="password">Password</label>
+            </div>
+                <!-- <input type="submit" value="Sign In"> -->
+            
+            <div class="d-grid gap-2">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </form> 
 
-</form> 
-
-<p>
-    <a href="/users/auth/google">Google Sign In/Sign Up</a>
-</p>
+        <div class="d-grid gap-2">
+            <a href="/users/auth/google" class="btn btn-danger" role="button">Google Sign In/Sign Up</a>
+        </div>
+        <div class="d-grid gap-2 m-4 ps-4">
+            <h6>Don't have an account  
+                <a href="/users/sign-up">
+                    Sign Up
+                </a>
+            </h6>
+        </div>
+    </div>
+</div>

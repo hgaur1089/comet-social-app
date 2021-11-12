@@ -1,0 +1,13 @@
+<link rel="stylesheet" href="/css/suggested-friends.css">
+
+<section id="user-friends">
+    <h4>Suggested Friends</h4>
+        <% for(u of all_users) {%>
+            <div> 
+                <div class="circular--landscape">
+                    <img src="<%= u.avatar %>" alt="<%= u.id %>">
+                </div>
+                <a href="/users/profile/<%= u.id %>"><%= u.name %></a>
+            </div>
+        <% } %>
+</section>

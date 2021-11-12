@@ -1,8 +1,11 @@
 const express = require('express');
 const env = require('./config/environment');
 const logger = require('morgan');
+
 const cookieParser = require('cookie-parser');
 const app = express();
+require('./config/view-helpers')(app);
+
 const port = 8000;
 const expressLayouts = require('express-ejs-layouts');
 const db = require('./config/mongoose');
@@ -27,6 +30,14 @@ const chatSockets = require('./config/chat_sockets').chatSockets(chatServer);
 chatServer.listen(5000);
 console.log('chat server is listenong on port: 5000');
 const path = require('path');
+
+//room server
+const roomServer = require('http').Server(app);
+const { v4: uuidv4 } = require('uuid');
+const roomSockets = require('./config/room_sockets').roomSockets(roomServer, app);
+roomServer.listen(3000);
+console.log('room server is listening on port: 3000');
+
 
 if(env.name == 'development'){
     console.log(env.asset_path);

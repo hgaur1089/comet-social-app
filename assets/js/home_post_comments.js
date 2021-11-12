@@ -59,26 +59,37 @@ class PostComments{
 
     newCommentDom(comment){
         // I've added a class 'delete-comment-button' to the delete comment link and also id to the comment's li
-        return $(`<li id="comment-${ comment._id }">
-                        <p>
-                            
-                            <small>
-                                <a class="delete-comment-button" href="/comments/destroy/${comment._id}">X</a>
-                            </small>
-                            
-                            ${comment.content}
-                            <br>
-                            <small>
+        return $(`<li id="comment-${ comment._id }">   
+        
+                        <div id="comment-card" class="container"> 
+                        <div id="header">
+                            <h4>
                                 ${comment.user.name}
-                            </small>
-                            <small>
-                            <a class="toggle-like-button" data-likes="0" href="/likes/toggle/?id=${comment._id}&type=Comment">
-                                0 <b>Likes</b>
-                            </a>
-                        </small>
-
-                        </p>    
-
+                            </h4>
+                            <% if (locals.user && locals.user.id == comment.user.id) { %> 
+                                <a class="delete-comment-button" href="/comments/destroy/${comment._id}">
+                                    <i class="far fa-times-circle"></i>
+                                </a>
+                            <% } %>
+                                
+                        </div>
+                        <div id="content">
+                            ${comment.content}
+                            <div id="likes">
+                                <% if(locals.user){ %>
+                                    <a class="toggle-like-button" data-likes="<%= comment.likes.length %>" href="/likes/toggle/?id=${comment._id}&type=Comment">
+                                        <%= comment.likes.length %> <b>Likes</b>
+                                    </a>
+                                <% } else{ %>
+                                    <%= post.likes.length %> <b>Likes</b>
+                                <% } %>
+                            </div>
+                        </div>
+                
+                        <!-- display the likes of the comment, if the user is logged in, then show the link to toggle likes, else just show the count-->
+                        
+                        
+                    </div>
                 </li>`);
     }
 

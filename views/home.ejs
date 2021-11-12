@@ -1,18 +1,69 @@
 
 <link rel="stylesheet" href="/css/home.css">
+<link rel="stylesheet" href="/css/sidetab.css">
 <link rel="stylesheet" href="/css/chat_box.css">
-
+ 
 <div id="home-container">
-    <section id="feed-posts">
-        <h4>Posts</h4>
+
+    <!-- <% if(locals.user) { %> -->
+    <!-- <section id="profile-details">
+        <h4>Profile Details</h4>
+        <div> 
+            <img src="<%= user.avatar %>" alt="<%= user.id %>">
+            <h4><%= user.name %></h4>
+            <a href="/users/profile/<%= user.id %>" class="btn btn-outline-secondary btn-sm mb-2" role="button">Edit</a>
+            <a href="#" class="btn btn-outline-primary btn-sm mb-2" role="button">Posts</a>
+        </div>
+    </section> -->
+    <!-- <section id="sidetab">
+        <h4>Comet</h4>
+        <div class="list">
+            <ul>
+                <li>
+                    <a href="/">
+                        <i class="fas fa-home fa-lg"></i>&emsp; Home
+                    </a>
+                </li>
+                <li>
+                    <i class="fas fa-inbox fa-lg"></i>&emsp; Posts
+                </li>
+                <li>
+                    <i class="fas fa-user-alt fa-lg"></i>&emsp; Profile
+                </li>
+                <li class="sign-out">
+                    <a href="/users/sign-out" class="sign-out-link">
+                        <i class="fas fa-power-off fa-lg"></i>&emsp; Sign Out
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <hr>
+        <div class="user-info"> 
+            <div>
+                <img src="<%= user.avatar %>" alt="<%= user.id %>">
+            </div>
+            <h4><%= user.name %></h4>
+        </div>
+    </section>
+    <% } %> -->
+    <section id="feed-posts" class="container w-50 mt-3">
         <% if(locals.user) { %>
-            <form action="/posts/create" id="new-post-form" method="POST">
-                <textarea name="content" cols="30" rows="3" placeholder="Type here..." required></textarea>
-                <input type="submit" value="Post">
-            </form>
+            <div id="create-post">
+                <h5>Create Post</h5>
+                <form action="/posts/create" class="form-inline" id="new-post-form" method="POST">
+                    <div class="form-group mb-2">
+                        <textarea name="content" class="form-control" cols="30" rows="3" placeholder="Type here..." required></textarea>
+                    </div>
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-primary">Post</button>
+                    </div>
+                </form>
+            </div>
+            <hr>
         <% } %>
         <div id="posts-list-container">
-            <ul>
+            <h3><i class="fas fa-fire fa-lg"></i> Posts</h3>
+            <ul class="post-list">
                 <% for(post of posts) { %> 
                     
                     <%-  include('_post') -%>
@@ -22,16 +73,10 @@
         </div>
     </section>
     
-    <section id="user-friends">
-        <h4>Friends</h4>
-        <% for(u of all_users) {%>
-            <p>
-                <a href="/users/profile/<%= u.id %>"><%= u.name %></a>
-            </p>
-        <% } %>
-    </section>
-
-    <%- include('_chat_box') -%>
+    <% if(locals.user) { %>
+        <%-  include('_suggested-friends') -%>
+    <% } %>
+    <!-- <%- include('_chat_box') -%> -->
 </div>
 
 <script src="/js/home_post_comments.js" ></script>
@@ -45,10 +90,10 @@
     });
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.2.0/socket.io.js"></script>
-<script src="/js/chat_engine.js"></script>
+<!-- <script src="/js/chat_engine.js"></script> -->
 
-<% if(locals.user){ %>
+<!-- <% if(locals.user){ %>
     <script>
         new ChatEngine('user-chat-box', '<%= locals.user.email %>');
     </script>
-<% } %>
+<% } %> -->
