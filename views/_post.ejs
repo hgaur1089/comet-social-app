@@ -24,6 +24,12 @@
 
             <div class="post-content">
                 <%= post.content %>
+
+                <% if (post.media) { %> 
+                    <div class="post-media">
+                        <img src="<%= post.media %>" alt="<%= post.user.name %>">
+                    </div>
+                <% } %>
             </div>
             
             <hr>

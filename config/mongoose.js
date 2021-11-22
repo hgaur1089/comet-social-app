@@ -1,7 +1,15 @@
 const mongoose = require('mongoose');
 const env = require('./environment');
 
-mongoose.connect(`mongodb://localhost/${env.db}`);
+const url = `mongodb+srv://hgaur1089:hgaur1089@cluster0.pfeht.mongodb.net/${env.db}?retryWrites=true&w=majority`
+const connectionParams={
+    useNewUrlParser: true,
+    useCreateIndex: true,
+    useUnifiedTopology: true 
+};
+
+// mongoose.connect(`mongodb://localhost/${env.db}`);
+mongoose.connect(url,connectionParams);
 
 const db = mongoose.connection;
 

@@ -25,7 +25,7 @@ module.exports.home = async function(req, res){
         }).populate('likes');
 
         let users = await User.find({})
-            
+        // console.log()
         return res.render('home.ejs', {
             title: "Comet | Home",
             posts: posts,

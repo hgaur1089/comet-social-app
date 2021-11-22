@@ -50,6 +50,15 @@
       font-weight: 500;
       overflow: hidden;
       text-overflow: ellipsis; }
+    #card .post-body .post-media {
+      width: 100%;
+      height: auto;
+      overflow: hidden;
+      margin: 1rem;
+      padding: 1rem; }
+      #card .post-body .post-media img {
+        border-radius: 20px;
+        width: 100%; }
     #card .post-body .like-comment {
       display: flex;
       flex-direction: row;

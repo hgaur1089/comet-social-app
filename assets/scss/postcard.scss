@@ -70,6 +70,17 @@ $gray: #9b9b9b;
             overflow: hidden;
             text-overflow: ellipsis;
         }
+        .post-media{
+            width: 100%;
+            height: auto;
+            overflow: hidden;
+            margin: 1rem;
+            padding: 1rem;
+            img {
+                border-radius: 20px;
+                width: 100%;
+            }
+        }
         .like-comment{
             display: flex;
             flex-direction: row;
