@@ -1072,3 +1072,7 @@
 [0mGET /css/footer.css [33m404[0m 449.844 ms - 153[0m
 [0mGET / [32m200[0m 896.174 ms - 5956[0m
 [0mGET /css/footer.css [33m404[0m 443.553 ms - 153[0m
+[0mGET / [36m302[0m 509.005 ms - 72[0m
+[0mGET /users/sign-in [36m304[0m 3114.045 ms - -[0m
+[0mGET /css/footer.css [33m404[0m 264.954 ms - 153[0m
+[0mGET /favicon.ico [33m404[0m 260.512 ms - 150[0m
