@@ -1,4 +1,4 @@
-const socket = io.connect('http://3.16.89.143/:3000');
+const socket = io.connect('http://3.16.89.143/:8000');
 const videoGrid = document.getElementById("video-grid");
 const myVideo = document.createElement("video");
 const showChat = document.querySelector("#showChat");
