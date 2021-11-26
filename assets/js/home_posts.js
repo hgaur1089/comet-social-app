@@ -1,19 +1,52 @@
-{
+{   
+    let base64String = "";
+    let Media = "false";
+  
+    function imageUploaded() {
+        Media = "true";
+        var file = document.querySelector(
+            'input[type=file]')['files'][0];
+    
+        var reader = new FileReader();
+        console.log("next");
+        
+        reader.onload = function () {
+            base64String = reader.result.replace("data:", "")
+                .replace(/^.+,/, "");
+    
+            imageBase64Stringsep = base64String;
+    
+            // alert(imageBase64Stringsep);
+            // console.log(base64String);
+        }
+        reader.readAsDataURL(file);
+    }
+
     //method to submit the form data for new post using ajax
     let createPost = function(){
         let newPostForm = $('#new-post-form');
-
         newPostForm.submit(function(e){
             e.preventDefault();
+
+            newPostForm.append('file', $('#media')[0].files[0]);
+            const dataForm = {
+                user : $('#id').val(),
+                content : $('#content').val(),
+                media : base64String,
+                ismedia: Media
+            };
 
             $.ajax({
                 type: 'post',
                 url: '/posts/create',
-                data: newPostForm.serialize(),
+                data: dataForm,
                 success: function(data){
                     let newPost = newPostDom(data.data.post);
                     $('#posts-list-container').prepend(newPost);
                     deletePost($('.delete-post-button', newPost));
+                    if(data.data.post.media){
+                        $('post-content').append(newPostDomMedia);
+                    }
 
                     new Noty({
                         theme: 'relax',
@@ -142,6 +175,15 @@
                     </div>
                 </div>
                 </li>`)
+    }
+
+    //media
+    let newPostDomMedia = function(post){
+        return $(`
+            <div class="post-media">
+                <img src="data:image/png;base64,${post.media}" alt="${post.user.name}">
+            </div>
+        `)
     }
 
     //method to delete a post from DOM

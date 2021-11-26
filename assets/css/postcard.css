@@ -46,8 +46,8 @@
       margin: 5px; }
     #card .post-body .post-content {
       margin: 20px;
-      font-size: medium;
-      font-weight: 500;
+      font-size: large;
+      font-weight: 400;
       overflow: hidden;
       text-overflow: ellipsis; }
     #card .post-body .post-media {

@@ -1,0 +1,26 @@
+
+<link rel="stylesheet" href="/css/explore.css">
+
+
+<div id="explore-container" class="container mt-3">
+    <div id="explore-feed">
+        <h3><i class="far fa-compass fa-lg"></i> Explore</h3>
+        <div id="explore-list-container">
+            <ul class="explore-list">
+                <% for(post of posts) { %> 
+                    
+                    <%-  include('_card') -%>
+    
+                <% } %>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<script src="js/toggle_likes.js"></script> 
+<script>
+    $('.toggle-like-button').each(function(){
+        let self = this;
+        let toggleLike = new ToggleLike(self);
+    });
+</script>

@@ -1,0 +1,157 @@
+$primary: #6c2be4;
+$secondary: #297fd4;
+$white: #fff;
+$black: rgb(0, 0, 0);
+$blue: #2b88e4;
+$gray: #9b9b9b;
+
+.explore-card {
+    width: 31%;
+    margin: 0.5rem;
+}
+#card{ 
+    border: 2px solid lightgrey;
+    border-radius: 15px;
+    margin-bottom: 10px;
+    padding: 0;
+    .post-body{
+        display: flex;
+        flex-direction: column;
+        header{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            padding: 8px;
+            margin-top: 4px;
+            .name-pic{
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-start;
+                .circular--landscape{
+                    padding: 0;
+                    background-color:grey;
+                    display: inline-block;
+                    position: relative;
+                    width: 40px;
+                    height:40px;
+                    overflow: hidden;
+                    border: 2px white solid;
+                    border-radius: 50%;
+                   .userpic {
+                        width: auto;
+                        height: 100%;
+                        margin-left: -5px;
+                    }
+                }
+                .username{
+                    align-self: center;
+                    font-family: inherit; 
+                    padding: 5px;
+                    padding-left: 15px;
+                    font-size: 1.2rem;
+                    a {
+                        text-decoration: none;
+                        color: black;
+                        font-weight: bolder;
+                    }
+                }
+            }
+            .delete-btn{
+                justify-content: flex-end;
+                align-self: center;
+                i{
+                    color: #DC3545;
+                }
+            }
+        }
+        hr{
+            margin: 0px;
+        }
+        .post-content{
+            margin: 0px;
+            font-size: medium;
+            font-weight: 500;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .post-media{
+            width: 100%;
+            // height: 12em;
+            overflow: hidden;
+            img {
+                // height: fit-content;
+                // height: 12em;
+                // margin-left: -5px;
+                width: 100%;
+            }
+        }
+        .like-comment{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            padding: 4px;
+            font-size: medium;
+            font-weight: 600;
+            padding-bottom: .5rem;
+            padding-top: .5rem;
+            a{
+                text-decoration: none;
+                padding: 5px 10px;
+                &:hover{
+                    color: white;
+                    background-color: #2b88e4;
+                    border-radius: 5px;
+                }
+            }
+        }
+        
+    }
+}
+
+#commentsModal{
+    #commentsModalLabel{   
+        font-size: 1.3rem;
+        font-weight: 700;
+    }
+    .comment-form{
+        .comment-form-input{
+            width: 90%;
+            input{
+                width: 100%;
+                border: 1px solid lightgrey;
+                border-radius: 30px;
+                font-size: 1rem;
+                padding: 6px;
+                transition: boder-color 0.2s;
+                &:focus{
+                    outline-width: 3px;
+                    outline-style: solid;
+                    outline-color: #719ECE;
+                }
+            }
+        }
+        .comment-form-btn{
+            padding-left: 6px;
+            button{
+                background-color: #297fd4;
+                margin-top: 0px;
+                padding: 10px 10px;
+                text-align: center;
+                text-transform: uppercase;
+                transition: 0.5s;
+                background-size: 200% auto;
+                color: white;            
+                box-shadow: 0 0 20px #eee;
+                border: 2px solid white;
+                border-radius: 50%;
+                display: block;
+                font-size: 20px;
+                &:hover{
+                    background-color: #2472c0;
+                }
+
+            }
+        }
+      }
+    
+}

@@ -3,6 +3,7 @@ const env = require('./config/environment');
 const logger = require('morgan');
 
 const cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser');
 const app = express();
 require('./config/view-helpers')(app);
 
@@ -50,8 +51,10 @@ if(env.name == 'development'){
     }))
 }
 
-app.use(express.urlencoded());
 
+
+app.use(express.json())
+app.use(express.urlencoded({limit: '50mb', extended: false}));
 app.use(cookieParser());
 
 app.use(express.static(env.asset_path));

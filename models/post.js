@@ -16,6 +16,10 @@ const postSchema = new mongoose.Schema({
     media: {
         type: String,
     },
+    ismedia: {
+        type: String,
+        default: "false",
+    },
     //include the array od ids of all comments in this post schema itself
     comments: [
         {

@@ -6,15 +6,25 @@
     <section id="sidetab">
         <h2>Comet</h2>
             <div class="list">
-                <ul>
+                <ul>   
+                    <li class="start-meet-btn">
+                        <a href="/room" id="start-btn" target="_blank">
+                            <i class="fas fa-video fa-lg"></i>&emsp; Create Room
+                        </a>
+                    </li>
                     <li>
                         <a href="/">
                             <i class="fas fa-home fa-lg"></i>&emsp; Home
                         </a>
                     </li>
                     <li>
-                        <i class="fas fa-inbox fa-lg"></i>&emsp; Posts
+                        <a href="/explore">
+                            <i class="fas fa-compass fa-lg"></i>&emsp; Explore
+                        </a>
                     </li>
+                    <!-- <li>
+                        <i class="fas fa-inbox fa-lg"></i>&emsp; Posts
+                    </li> -->
                     <li>
                         <a href="/users/profile/<%= user.id %>">
                             <i class="fas fa-user-alt fa-lg"></i>&emsp; Profile

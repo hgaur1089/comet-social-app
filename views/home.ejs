@@ -9,13 +9,14 @@
         <% if(locals.user) { %>
             <div id="create-post">
                 <h5>Create Post</h5>
-                <form action="/posts/create" class="form-inline" id="new-post-form"  method="POST" enctype="multipart/form-data">
+                <form action="/posts/create" class="form-inline" id="new-post-form"  enctype="multipart/form-data"  method="POST">
                     <div class="form-group mb-2">
-                        <textarea name="content" class="form-control" cols="30" rows="3" placeholder="Type here..." required></textarea>
+                        <textarea name="content" id="content" class="form-control" cols="30" rows="3" placeholder="Type here..." required></textarea>
                     </div>
-                    <!-- <div class="d-grid gap-2 mb-2">
-                        <input type="file" name="media" class="form-control" id="media" accept="image/*">
-                    </div> -->
+                    <div class="d-grid gap-2 mb-2">
+                        <input type="file" name="media" class="form-control" id="media" accept="image/*" onchange="imageUploaded()">
+                    </div>
+                    <input type="hidden" id="id" value="<%= user._id %>">
                     <div class="d-grid gap-2">
                         <button type="submit" class="btn btn-primary">Post</button>
                     </div>

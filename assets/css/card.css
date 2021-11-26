@@ -1,0 +1,117 @@
+.explore-card {
+  width: 31%;
+  margin: 0.5rem; }
+
+#card {
+  border: 2px solid lightgrey;
+  border-radius: 15px;
+  margin-bottom: 10px;
+  padding: 0; }
+  #card .post-body {
+    display: flex;
+    flex-direction: column; }
+    #card .post-body header {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 8px;
+      margin-top: 4px; }
+      #card .post-body header .name-pic {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start; }
+        #card .post-body header .name-pic .circular--landscape {
+          padding: 0;
+          background-color: grey;
+          display: inline-block;
+          position: relative;
+          width: 40px;
+          height: 40px;
+          overflow: hidden;
+          border: 2px white solid;
+          border-radius: 50%; }
+          #card .post-body header .name-pic .circular--landscape .userpic {
+            width: auto;
+            height: 100%;
+            margin-left: -5px; }
+        #card .post-body header .name-pic .username {
+          align-self: center;
+          font-family: inherit;
+          padding: 5px;
+          padding-left: 15px;
+          font-size: 1.2rem; }
+          #card .post-body header .name-pic .username a {
+            text-decoration: none;
+            color: black;
+            font-weight: bolder; }
+      #card .post-body header .delete-btn {
+        justify-content: flex-end;
+        align-self: center; }
+        #card .post-body header .delete-btn i {
+          color: #DC3545; }
+    #card .post-body hr {
+      margin: 0px; }
+    #card .post-body .post-content {
+      margin: 0px;
+      font-size: medium;
+      font-weight: 500;
+      overflow: hidden;
+      text-overflow: ellipsis; }
+    #card .post-body .post-media {
+      width: 100%;
+      overflow: hidden; }
+      #card .post-body .post-media img {
+        width: 100%; }
+    #card .post-body .like-comment {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+      padding: 4px;
+      font-size: medium;
+      font-weight: 600;
+      padding-bottom: .5rem;
+      padding-top: .5rem; }
+      #card .post-body .like-comment a {
+        text-decoration: none;
+        padding: 5px 10px; }
+        #card .post-body .like-comment a:hover {
+          color: white;
+          background-color: #2b88e4;
+          border-radius: 5px; }
+
+#commentsModal #commentsModalLabel {
+  font-size: 1.3rem;
+  font-weight: 700; }
+
+#commentsModal .comment-form .comment-form-input {
+  width: 90%; }
+  #commentsModal .comment-form .comment-form-input input {
+    width: 100%;
+    border: 1px solid lightgrey;
+    border-radius: 30px;
+    font-size: 1rem;
+    padding: 6px;
+    transition: boder-color 0.2s; }
+    #commentsModal .comment-form .comment-form-input input:focus {
+      outline-width: 3px;
+      outline-style: solid;
+      outline-color: #719ECE; }
+
+#commentsModal .comment-form .comment-form-btn {
+  padding-left: 6px; }
+  #commentsModal .comment-form .comment-form-btn button {
+    background-color: #297fd4;
+    margin-top: 0px;
+    padding: 10px 10px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    box-shadow: 0 0 20px #eee;
+    border: 2px solid white;
+    border-radius: 50%;
+    display: block;
+    font-size: 20px; }
+    #commentsModal .comment-form .comment-form-btn button:hover {
+      background-color: #2472c0; }

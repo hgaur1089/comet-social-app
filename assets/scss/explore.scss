@@ -1,0 +1,26 @@
+#explore-container {
+    display: flex;
+    height: 100%;
+    justify-content: end;
+    #explore-feed{ 
+        width: 80%;
+        padding: 10px 10px; 
+        position: relative;
+        h3{
+            font-weight: 700;
+            padding: 10px;
+            margin: 0;
+        }
+        #explore-list-container{
+            // margin-top: 1rem;
+            .explore-list{
+                list-style:none;
+                padding: 0px;
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                width: 100%;
+            }
+        }
+    }
+}

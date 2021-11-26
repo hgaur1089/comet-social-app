@@ -1,7 +1,7 @@
-<link rel="stylesheet" href="/css/postcard.css">
+<link rel="stylesheet" href="/css/card.css">
 <link rel="stylesheet" href="/css/all.css">
 
-<li id="post-<%= post._id %>">
+<li id="post-<%= post._id %>" class="explore-card">
     <div id="card" class="container">
         <div class="post-body"> 
             <header>
@@ -10,21 +10,23 @@
                         <img src="<%= post.user.avatar %>" alt="<%= post.user.name %>" class="userpic">
                     </div>
                     <small class="username">
-                        <%= post.user.name %>
+                        <a href="/users/profile/<%= post.user.id %>">
+                            <%= post.user.name %>
+                        </a>
                     </small>
                 </div>
  
                 <% if (locals.user && locals.user.id == post.user.id) { %> 
                     <div class="delete-btn">
-                        <a class="delete-post-button btn btn-danger btn-sm" role="button" href="/posts/destroy/<%= post.id %>">Delete</a>
+                        <a class="delete-post-button" role="button" href="/posts/destroy/<%= post.id %>">
+                            <i class="fas fa-times-circle fa-lg"></i>
+                        </a>
                     </div> 
                 <% } %>
             </header>
             <hr>
 
             <div class="post-content" id="post-content">
-                <%= post.content %>
-
                 <% if (post.media) { %> 
                     <div class="post-media">
                         <img src="data:image/png;base64,<%= post.media %>" alt="<%= post.user.name %>">
@@ -52,34 +54,7 @@
                     
                 </div>
             </div>
-            <div class="post-comment-input">
-                <% if(locals.user) {%>
-                    <form id="post-<%= post._id %>-comments-form" action="/comments/create" method="POST">
-                        <!-- <input type="text" name="content" placeholder="Add a comment..." required> -->
-                        <div class="d-flex flex-row justify-content-center">
-                            <div class="form__group field">
-                                <input type="input" class="form__field" placeholder="Add a comment..." name="content" id='comment' required />
-                                <label for="comment" class="form__label">Add a comment...</label>
-                            </div>
-                            <input type="hidden" name="post" value="<%= post._id %>">
-                            <div class="add-btn">
-                                <button type="submit" class="publish-btn btn-grad">
-                                    <i class="fas fa-paper-plane"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </form>    
-                <% } %>
-            </div>
-
         </div>
-        
-        <div class="post-comments">
-            <ul id="post-comments-<%= post._id %>">
-            
-            </ul> 
-        </div>
-        
     </div>
 
 

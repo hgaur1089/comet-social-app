@@ -40,6 +40,18 @@
         background: #DC3545; }
         #sidetab .list ul .sign-out:hover a {
           color: white; }
+      #sidetab .list ul .start-meet-btn {
+        text-decoration: none;
+        padding: 0.8rem 1rem;
+        border-radius: 5px;
+        background: linear-gradient(to right, #6c2be4, #297fd4);
+        font-weight: 500;
+        transition: 0.5s; }
+        #sidetab .list ul .start-meet-btn #start-btn {
+          color: white; }
+        #sidetab .list ul .start-meet-btn:hover {
+          color: white;
+          background-image: linear-gradient(to right, #6c2be4 0%, #9733EE 51%, #297fd4 100%); }
       #sidetab .list ul .sign-in-up:hover {
         background: #0D6EFD; }
         #sidetab .list ul .sign-in-up:hover a {
@@ -65,9 +77,9 @@
       outline-style: solid;
       outline-color: #1d6ab8;
       outline-width: 3px; }
-      #sidetab .user-info .circular--landscape .img {
-        width: auto;
-        height: 100%; }
+      #sidetab .user-info .circular--landscape img {
+        width: 45px;
+        height: 45px; }
     #sidetab .user-info h4 {
       align-self: center;
       font-size: 1.1rem;
