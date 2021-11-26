@@ -30,7 +30,7 @@ const development = {
     },
     google_client_id: "105966610831-52nmpgctr5m97c1ahm0iuqnvd7v43qsn.apps.googleusercontent.com",
     google_client_secret: "RHwLD0PRjy0U-b7IZikNk6AJ",
-    google_callback_url: "http://localhost:8000/users/auth/google/callback",
+    google_callback_url: "http://3.16.89.143:8000/users/auth/google/callback",
     jwt_secret: 'comet',
     morgan: {
         mode: 'dev',
